@@ -9,66 +9,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPA Calculator</title>
     <style>
-/* Importing modern fonts */
+/* Importing Google Fonts for modern typography */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
-/* General Styles */
+/* General Page Styles */
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 20px;
     background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: white;
-    text-align: center;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    text-align: center;
 }
 
+/* Container for the Calculator */
 .container {
     width: 90%;
     max-width: 800px;
     background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
     border-radius: 12px;
-    backdrop-filter: blur(10px);
+    padding: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 /* Headings */
 h2 {
+    font-size: 24px;
     font-weight: 600;
     margin-bottom: 20px;
 }
 
-/* Inputs and Buttons */
-input, button {
-    width: 90%;
+/* Form Inputs */
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
     max-width: 300px;
-    padding: 12px;
-    margin: 8px auto;
+    padding: 10px;
+    margin: 10px 0;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
-    text-align: center;
-    transition: 0.3s ease-in-out;
-}
-
-input {
     background: rgba(255, 255, 255, 0.2);
-    color: white;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    outline: none;
+    transition: background 0.3s ease-in-out;
 }
 
 input::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
+input:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons */
 button {
+    padding: 12px;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 300px;
     background: #28a745;
-    color: white;
+    color: #fff;
+    font-size: 16px;
     font-weight: 600;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
 }
 
 button:hover {
@@ -76,19 +91,36 @@ button:hover {
     transform: scale(1.05);
 }
 
+.delete-btn {
+    background: #ff3b3b;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.delete-btn:hover {
+    background: #e63232;
+}
+
 /* Table Styles */
 table {
     margin: 20px auto;
     width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 th, td {
     padding: 14px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 16px;
 }
 
 th {
@@ -104,51 +136,17 @@ tr:hover td {
     background: rgba(255, 255, 255, 0.4);
 }
 
-/* Delete Button in Table */
-.delete-btn {
-    background: #ff3b3b;
-    color: white;
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-}
-
-.delete-btn:hover {
-    background: #e63232;
-    transform: scale(1.1);
-}
-
-/* Download Buttons */
-.download-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+/* Footer for Information */
+footer {
     margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-.download-buttons button {
-    background: #007bff;
-    color: white;
-    padding: 12px 16px;
-    font-size: 16px;
-}
-
-.download-buttons button:hover {
-    background: #0056b3;
-    transform: scale(1.05);
-}
-
-/* Responsive Adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
-    .container {
-        width: 95%;
-        padding: 15px;
-    }
-
-    input, button {
-        max-width: 100%;
+    h2 {
+        font-size: 20px;
     }
 
     table {
@@ -158,11 +156,16 @@ tr:hover td {
     th, td {
         padding: 10px;
     }
+
+    input, button {
+        font-size: 14px;
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
     h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     table {
@@ -171,6 +174,10 @@ tr:hover td {
 
     th, td {
         padding: 8px;
+    }
+
+    input, button {
+        font-size: 14px;
     }
 }
 </style>
