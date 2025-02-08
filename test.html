@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    padding: 0;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 90%; /* Adjusted for smaller screens */
+    max-width: 600px; /* Keeps it readable on larger screens */
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 90%; /* Full width on mobile */
+    max-width: 300px; /* Prevents buttons from being too large */
+}
+
+/* Responsive design for small screens */
+@media screen and (max-width: 600px) {
+    table {
+        width: 100%; /* Full width for mobile */
+    }
+    
+    th, td {
+        padding: 8px; /* Slightly smaller padding for compact display */
+    }
+    
+    button {
+        width: 100%; /* Full width buttons */
+    }
+    
+    input {
+        width: 90%; /* Inputs take up more space */
+        max-width: 250px;
+    }
+}
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 60%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+}
+
+.container {
+    max-width: 90%;
+    width: 800px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-weight: 600;
+}
+
+input, button {
+    padding: 12px;
+    margin: 8px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+input {
+    width: 90%;
+    max-width: 250px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-align: center;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+    background: #ff7b00;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+}
+
+button:hover {
+    background: #e66a00;
+    transform: scale(1.05);
+}
+
+table {
+    margin: 20px auto;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 14px;
+    text-align: center;
+}
+
+th {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+td {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.delete-btn {
+    background: #ff3b3b;
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.delete-btn:hover {
+    background: #e63232;
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    input, button {
+        width: 100%;
+        max-width: none;
+    }
+
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+button {
+    background: #28a745;
+    color: white;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+.download-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.download-buttons button {
+    background: #007bff;
+    color: white;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.download-buttons button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+
+    </style>
+
+</head>
+<body>
+    <h2>GPA Calculator</h2>
+    <label for="subject">Subject: </label>
+    <input type="text" id="subject">
+    <button onclick="setSubject()">Set Subject</button>
+    <button onclick="changeSubject()">Change Subject</button>
+    <br><br>
+    <label for="studentName">Student Name: </label>
+    <input type="text" id="studentName">
+    <br><br>
+    <table id="gradesTable">
+        <tr>
+            <th>Student Name</th>
+            <th>Subject</th>
+            <th>Final Exam</th>
+            <th>Year Work</th>
+            <th>Letter Grade</th>
+            <th>Action</th>
+        </tr>
+    </table>
+    <br>
+    <input type="number" id="final" min="0" max="100" placeholder="Final Exam">
+    <input type="number" id="yearWork" min="0" max="100" placeholder="Year Work">
+    <button onclick="addStudentGrade()">Add Student Grade</button>
+    <div class="download-buttons">
+        <button onclick="downloadFullReport()">Download Full Report</button>
+        <button onclick="downloadLetterGrades()">Download Letter Grades</button>
+    </div>
+    
+
+    <script>
+       function downloadFullReport() {
+    const { jsPDF } = window.jspdf;
+    let doc = new jsPDF();
+
+    // Title Styling
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text("Student Full Report", 70, 15);
+    
+    // Get Table Data
+    let table = document.getElementById("gradesTable");
+    let rows = table.getElementsByTagName("tr");
+    let data = [];
+
+    for (let i = 1; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName("td");
+        if (cells.length > 0) {
+            let studentName = cells[0].textContent;
+            let subject = cells[1].textContent;
+            let finalExam = cells[2].textContent;
+            let yearWork = cells[3].textContent;
+            let totalScore = parseFloat(finalExam) + parseFloat(yearWork);
+            let letterGrade = cells[4].textContent;
+            
+            data.push([studentName, subject, finalExam, yearWork, totalScore, letterGrade]);
+        }
+    }
+
+    // Generate Table with AutoTable
+    doc.autoTable({
+        startY: 25,
+        head: [["Student Name", "Subject", "Final Exam", "Year Work", "Total", "Grade"]],
+        body: data,
+        theme: "grid",
+        styles: { fontSize: 12, cellPadding: 5 },
+        headStyles: { fillColor: [0, 122, 255], textColor: 255, fontStyle: "bold" },
+        alternateRowStyles: { fillColor: [240, 240, 240] }
+    });
+
+    // Save as PDF
+    doc.save("Full_Report.pdf");
+}
+
+function downloadLetterGrades() {
+    const { jsPDF } = window.jspdf;
+    let doc = new jsPDF();
+
+    // Title Styling
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text("Letter Grades Report", 65, 15);
+    
+    // Get Table Data
+    let table = document.getElementById("gradesTable");
+    let rows = table.getElementsByTagName("tr");
+    let data = [];
+
+    for (let i = 1; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName("td");
+        if (cells.length > 0) {
+            let studentName = cells[0].textContent;
+            let letterGrade = cells[4].textContent;
+            
+            data.push([studentName, letterGrade]);
+        }
+    }
+
+    // Generate Table with AutoTable
+    doc.autoTable({
+        startY: 25,
+        head: [["Student Name", "Letter Grade"]],
+        body: data,
+        theme: "grid",
+        styles: { fontSize: 12, cellPadding: 5 },
+        headStyles: { fillColor: [0, 200, 83], textColor: 255, fontStyle: "bold" },
+        alternateRowStyles: { fillColor: [240, 240, 240] }
+    });
+
+    // Save as PDF
+    doc.save("Letter_Grades.pdf");
+}
+
+
+        let selectedSubject = "";
+        
+        function setSubject() {
+            selectedSubject = document.getElementById("subject").value;
+            document.getElementById("subject").disabled = true;
+        }
+        
+        function changeSubject() {
+            document.getElementById("subject").disabled = false;
+        }
+
+        function getLetterGrade(score) {
+            if (score >= 80) return 'A';
+            if (score >= 75) return 'B+';
+            if (score >= 65) return 'B';
+            if (score >= 60) return 'C+';
+            if (score >= 50) return 'C';
+            
+            return 'F';
+        }
+
+        function addStudentGrade() {
+            if (!selectedSubject) {
+                alert("Please set the subject first.");
+                return;
+            }
+            
+            let studentName = document.getElementById("studentName").value;
+            let finalExam = parseFloat(document.getElementById("final").value) || 0;
+            let yearWork = parseFloat(document.getElementById("yearWork").value) || 0;
+            
+            if (!studentName.trim()) {
+                alert("Please enter a student name.");
+                return;
+            }
+            
+            let totalScore = finalExam + yearWork;
+            
+            if (totalScore > 100) {
+                alert("Error: The total score cannot exceed 100.");
+                return;
+            }
+            
+            let grade = getLetterGrade(totalScore);
+            
+            let table = document.getElementById("gradesTable");
+            let row = table.insertRow(-1);
+            row.insertCell(0).textContent = studentName;
+            row.insertCell(1).textContent = selectedSubject;
+            row.insertCell(2).textContent = finalExam;
+            row.insertCell(3).textContent = yearWork;
+            row.insertCell(4).textContent = grade;
+            let deleteCell = row.insertCell(5);
+            let deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.onclick = function () {
+                table.deleteRow(row.rowIndex);
+            };
+            deleteCell.appendChild(deleteButton);
+            
+            document.getElementById("studentName").value = "";
+            document.getElementById("final").value = "";
+            document.getElementById("yearWork").value = "";
+        }
+    </script>
+    <footer style="margin-top: 20px; text-align: center; font-size: 14px; color: #333;">
+        Made by <strong>Awn M.S. Rudwan</strong>
+    </footer>
+    
+    
+    
+</body>
+</html>
