@@ -9,6 +9,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPA Calculator</title>
     <style>
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    padding: 0;
+    background-color: #f0f4f8; /* Softer background */
+}
+
+/* Table styles */
+table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 100%; /* Full width for responsiveness */
+    max-width: 100%; /* Prevent table overflow */
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px; /* Smaller font for mobile */
+}
+
+/* Button styles */
+button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    width: 90%; /* Full width on mobile */
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+/* Input fields */
+input {
+    margin: 5px 0;
+    padding: 8px;
+    width: 90%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Responsive layout adjustments */
+@media screen and (max-width: 600px) {
+    table {
+        font-size: 12px; /* Smaller font for compact display */
+    }
+
+    th, td {
+        padding: 5px; /* Reduce padding for small screens */
+    }
+
+    input, button {
+        font-size: 14px; /* Adjust font size for better fit */
+    }
+}
+
+/* Footer styles */
+footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #555;
+}
 body {
     font-family: Arial, sans-serif;
     text-align: center;
